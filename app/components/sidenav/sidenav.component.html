@@ -1,0 +1,28 @@
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened>
+    <!-- Drawer content -->
+    <mat-nav-list>
+      <h3 matSubheader>Menu</h3>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Basic
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div cdkDropList [cdkDropListData]="['main-content-drop-list']" (cdkDropListDropped)="onDrop($event)">
+          <button mat-raised-button cdkDrag>Home</button>
+        </div>
+      </mat-expansion-panel>
+    </mat-nav-list>
+  </mat-drawer>
+
+  <mat-drawer-content cdkDropList [cdkDropListData]="['main-content-drop-list']" (cdkDropListDropped)="onDrop($event)">
+    <!-- Main content -->
+    <div *ngIf="showDragHereText">
+      <p style="text-align: center;">Drag here</p>
+    </div>
+    <div>
+      <!-- Your other main content goes here -->
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
